@@ -1,0 +1,12 @@
+This chapter covers the scope of beans in spring
+
+Scope means how the bean will be created, will there be only one instance or more.
+
+By default, spring creates beans using the singleton scope. This means that the bean will be created only once and shared whenever required.
+
+The other scopes are:
+
+prototype - creates a new bean for every request
+request   - scoped to an http web request. Only used in web apps
+session   - scoped to an http web session. Only used in web apps
+global-session - scoped to a global http web session. Only used in web apps

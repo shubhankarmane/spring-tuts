@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+    
+    <!-- The following is an example of setter injection -->
+    <bean id="baseballCoach" class="com.shubhankar.spring.coaches.BaseballCoach">
+    	<property name="fortuneService" ref="simpleFortuneService"></property>
+    </bean>
+    
+	<bean id="trackCoach" class="com.shubhankar.spring.coaches.TrackCoach"></bean>
+	
+	<bean id="cricketCoach" class="com.shubhankar.spring.coaches.CricketCoach">
+		<property name="coachName" value="Coach peter"></property>
+		<property name="teamName" value="Team rubber"></property>
+		<property name="email" value="${Coach.email}"></property>
+	</bean>
+	
+	<!-- The following bean is an example of constructor injection -->
+	<bean id="sleepCoach" class="com.shubhankar.spring.coaches.SleepCoach">
+		<constructor-arg ref="simpleFortuneService">
+		</constructor-arg>
+	</bean>
+	
+	<!-- The following bean has been set to have a prototype scope -->
+	<bean id="tennisCoach" class="com.shubhankar.spring.coaches.TennisCoach" scope="prototype"></bean>
+	
+	<bean id="simpleFortuneService" class="com.shubhankar.spring.services.SimpleFortuneService"></bean>
+	
+	<bean id="headlessCoach" class="com.shubhankar.spring.coaches.HeadlessCoach" init-method="customInit" destroy-method="customDestroy"></bean>
+	
+	<context:property-placeholder location="classpath:CricketCoach.properties"/>
+</beans>

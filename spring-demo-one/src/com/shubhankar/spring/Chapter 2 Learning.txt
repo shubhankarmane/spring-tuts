@@ -1,0 +1,20 @@
+This chapter covers dependency injection
+
+We shall use the example of getting a car to understand this concept. Suppose you have to order a car from the factory, maybe a tesla, then when you get the car, you do not have to
+install the seats, tyres and what not. You simply drive the car, you get a fully built car. 
+
+What we are trying to understand here is that suppose you get an object, you just want to use the object without needing to set-up it's various dependencies. This part is handled
+by spring. (Car's dependencies : seats, engine, headlights and a lot of other things).
+
+There are two ways of accomplishing using XML config,
+1. Constructor injection (refer to SleepCoach to learn more about this. Both class and the xml bean)
+2. Setter injection (refer to BaseballCoach to learn more, same as above)
+
+When you use setter injection, you have to name the property with the same name as the method that is going to set the dependency. example
+
+methodname - setBrain()
+property - brain 
+
+Likewise, we can also insert values into the properties. For that, we need to have the setter methods defined properly and we need to configure it in the XML.
+
+Note that values can be inserted directly or through a file. Refer to the configuration to learn more.

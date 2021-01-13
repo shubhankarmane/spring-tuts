@@ -1,0 +1,7 @@
+This chapter covers using custom init and destroy methods
+
+Spring allows us to use custom init and destroy methods when we initialize beans
+
+to do that, you must specify the method in the class itself(the class that you are instantiating), and specify the method names in the xml config
+
+refer the xml file to learn more 

@@ -1,0 +1,27 @@
+This chapter covers inversion of control
+
+In this chapter, we have defined an example application that gives us daily workouts. The normal way to do so would be to define classes, and call the methods after instantiating 
+them. To make the classes decoupled from each other, we have used interfaces here. The object that we get like this is a POJO or plain old java object.
+
+The main thing that spring does is called Inversion of Control which means that we outsource the creation of objects to an external source/factory whatever. To take advantage of 
+spring's capabalitites, we have downloaded the framework and put the files in the lib folder. We can use maven also, but because I am a noob, I am following what the instructor 
+says.
+
+After we do that, we can configure spring using one of the following three ways:
+
+1. Writing XML 
+2. Using annotations
+3. Writing java code
+
+This chapter covers the first technique.
+
+We have defined the applicationContext.xml file and defined a bean in it. We are telling the applicationContext to give us the object.
+
+You might be wondering why we are specifying the interface when we retrieve the bean, the reason mentioned is as follows:
+
+When we pass the interface to the method, behind the scenes Spring will cast the object for you.
+However, there are some slight differences than normal casting.
+
+From the Spring docs:
+Behaves the same as getBean(String), but provides a measure of type safety by throwing a BeanNotOfRequiredTypeException if the bean is not of the required type. 
+This means that ClassCastException can't be thrown on casting the result correctly, as can happen with getBean(String).
